@@ -23,19 +23,22 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12">
         {/* Logo */}
-        <div className="text-2xl font-bold flex items-center">
+        <Link href="/" className="text-2xl font-bold flex items-center">
           <span className="text-white">Crew</span>
           <span className="text-accent">5</span>
           <span className="text-white ml-1">Agency</span>
-        </div>
+        </Link>
 
         {/* Desktop Links */}
         <nav className="hidden md:flex space-x-8 items-center">
-          <Link href="#services" className="hover:text-accent transition">
+          <Link href="/aboutus" className="hover:text-accent transition">
+            About Us
+          </Link>
+          <Link href="/services" className="hover:text-accent transition">
             Services
           </Link>
-          <Link href="#work" className="hover:text-accent transition">
-            Work
+          <Link href="/projects" className="hover:text-accent transition">
+            Our Projects
           </Link>
           <Link href="#contact" className="hover:text-accent transition">
             Contact
@@ -100,7 +103,7 @@ export default function Navbar() {
 
           {/* Menu Links */}
           <Link
-            href="#services"
+            href="/services"
             className="text-white text-2xl hover:text-accent transition"
             onClick={() => setMenuOpen(false)}
           >

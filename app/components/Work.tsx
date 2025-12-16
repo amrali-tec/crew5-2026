@@ -1,11 +1,19 @@
 "use client";
 
-const works = [
+import Link from "next/link";
+
+type Work = {
+  title: string;
+  description: string;
+  color: string;
+};
+
+const works: Work[] = [
   {
     title: "Project One",
     description:
       "Brief description of the first project. Attractive user experience and creative design.",
-    color: "bg-[#1f2937]", // placeholder background
+    color: "bg-[#1f2937]",
   },
   {
     title: "Project Two",
@@ -39,14 +47,20 @@ const works = [
   },
 ];
 
-export default function WorkSection() {
+type WorkSectionProps = {
+  limit?: number; // لو حابين نظهر عدد محدود على الصفحة الرئيسية
+};
+
+export default function WorkSection({ limit }: WorkSectionProps) {
+  const displayedWorks = limit ? works.slice(0, limit) : works;
+
   return (
     <section className="w-full py-20 px-6 md:px-12 bg-background">
       <h2 className="text-white text-3xl md:text-4xl font-bold text-center mb-12">
         Our Work
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {works.map((work, index) => (
+        {displayedWorks.map((work, index) => (
           <div
             key={index}
             className={`rounded-xl overflow-hidden flex flex-col justify-end p-6 h-64 cursor-pointer hover:scale-105 transform transition-all ${work.color}`}
@@ -58,6 +72,18 @@ export default function WorkSection() {
           </div>
         ))}
       </div>
+
+      {/* CTA للانتقال لكل المشاريع */}
+      {limit && works.length > limit && (
+        <div className="text-center mt-12">
+          <Link
+            href="/projects"
+            className="inline-block px-6 py-3 rounded-lg bg-accent text-background font-semibold hover:brightness-110 transition"
+          >
+            View All Projects
+          </Link>
+        </div>
+      )}
     </section>
   );
 }

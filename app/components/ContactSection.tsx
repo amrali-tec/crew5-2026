@@ -16,7 +16,7 @@ export default function ContactSection() {
         {/* Contact Info */}
         <div className="flex flex-col justify-center gap-6">
           <h3 className="text-xl font-semibold text-white mb-4">
-            Get in Touch
+            Contact Methods
           </h3>
           <a
             href="https://api.whatsapp.com/send?phone=966568121909"
@@ -60,15 +60,15 @@ export default function ContactSection() {
             className="p-3 rounded-md bg-background/40 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-accent"
           />
           <textarea
-            placeholder="Your Message"
+            placeholder="Message"
             rows={5}
             className="p-3 rounded-md bg-background/40 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-accent"
-          ></textarea>
+          />
           <button
             type="submit"
             className="bg-accent text-background font-semibold py-3 rounded-md hover:brightness-110 transition"
           >
-            Send
+            Send Message
           </button>
         </form>
       </div>
