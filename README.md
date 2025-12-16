@@ -1,3 +1,24 @@
+# Crew5 Agency Website
+
+Modern website for Crew5 Agency built with Next.js, React, and Tailwind CSS.
+
+## Features
+- Services showcase
+- Work/Portfolio section
+- Partners carousel
+- About Us and Team sections
+- Responsive design for mobile & desktop
+
+## Requirements
+- Node.js >= 18
+- npm or yarn
+- Next.js 13+
+
+## Setup
+1. Clone the repo:
+```bash
+git clone https://github.com/yourusername/crew5-website.git
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
