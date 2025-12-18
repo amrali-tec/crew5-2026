@@ -12,15 +12,6 @@ Creative agency website built with **Next.js 14**, **Tailwind CSS**, and **TypeS
 - Modern animations and hover effects
 - Clean, modular components
 
-## Production
-```bash
-npm run build
-npm run start
-
-## Development
-```bash
-npm run dev
-
 ## Installation
 
 ```bash
