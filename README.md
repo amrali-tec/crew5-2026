@@ -13,10 +13,12 @@ Creative agency website built with **Next.js 14**, **Tailwind CSS**, and **TypeS
 - Clean, modular components
 
 ## Production
+```bash
 npm run build
 npm run start
 
 ## Development
+```bash
 npm run dev
 
 ## Installation
