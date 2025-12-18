@@ -6,18 +6,18 @@ import OurJourney from "./components/About/OurJourney";
 import Stats from "./components/Stats";
 import Client from "./components/Client";
 import Testimonials from "./components/About/Testimonials";
+import LatestPosts from "./components/LatestPosts";
 export default function HomePage() {
   return (
     <main>
-      <HeroSection />
-      <OurJourney />
-
-      <Stats />
-      <ServicesSection />
-      {/* Navbar */}
-      <Work limit={3} />
-      <Testimonials />
-      <Client />
+      <HeroSection /> {/* البداية اللافتة للانتباه */}
+      <Stats /> {/* أهم الأرقام والإحصائيات */}
+      <ServicesSection /> {/* الخدمات الرئيسية */}
+      <Work limit={3} /> {/* أبرز المشاريع */}
+      <LatestPosts /> {/* آخر المقالات / الأخبار */}
+      <OurJourney /> {/* قصة الشركة / رحلة العمل */}
+      <Testimonials /> {/* آراء العملاء */}
+      <Client /> {/* الشركات أو الشركاء */}
     </main>
   );
 }
