@@ -18,3 +18,6 @@ Creative agency website built with **Next.js 14**, **Tailwind CSS**, and **TypeS
 git clone https://github.com/yourusername/crew5-website.git
 cd crew5-website
 npm install
+npm run dev
+npm run build
+npm run start
