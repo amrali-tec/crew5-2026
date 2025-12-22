@@ -6,10 +6,12 @@ import TeamSection from "../components/About/TeamSection";
 import Testimonials from "../components/About/Testimonials";
 import CTASection from "../components/About/CTASection";
 import AboutHeader from "../components/About/AboutHeader";
+import GlobalBackground from "../components/GlobalBackground";
 
 export default function AboutUs() {
   return (
     <div className="bg-background text-white">
+      <GlobalBackground />
       <AboutHeader />
       <IntroSection />
       <MissionVision />

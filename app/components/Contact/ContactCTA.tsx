@@ -1,20 +1,35 @@
+//Users/editing2/crew5-website/app/components/Contact/ContactCTA.tsx
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function ContactCTA() {
   return (
-    <section className="py-20 text-center px-6 md:px-12">
-      <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-        Ready to Start Your Project?
-      </h2>
-      <p className="text-white/80 mb-8">
-        Let’s turn your ideas into a powerful digital experience.
-      </p>
-      <Link
-        href="/services"
-        className="inline-block px-8 py-4 rounded-xl bg-accent text-black font-semibold hover:scale-105 transition"
+    <section className="py-20 px-6 md:px-12 bg-background">
+      <motion.div
+        initial={{ opacity: 0, y: 30, scale: 0.97 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="max-w-4xl mx-auto text-center rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl px-6 md:px-10 py-10 md:py-12 shadow-[0_0_35px_rgba(10,15,31,0.9)]"
       >
-        Explore Our Services
-      </Link>
+        <h2 className="text-3xl md:text-4xl font-black text-text mb-4">
+          Ready to Start Your Project?
+        </h2>
+        <p className="text-muted mb-8 max-w-2xl mx-auto text-sm md:text-base">
+          Let&apos;s turn your ideas into a powerful digital experience with a
+          clear plan, creative execution, and measurable results.
+        </p>
+        <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+          <Link
+            href="/services"
+            className="inline-flex items-center justify-center px-10 py-4 rounded-2xl bg-accent text-background font-semibold text-sm md:text-base shadow-[0_0_28px_rgba(0,255,127,0.8)] hover:shadow-[0_0_36px_rgba(0,255,127,1)] transition-all duration-300"
+          >
+            Explore Our Services
+          </Link>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

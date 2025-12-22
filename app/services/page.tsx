@@ -1,5 +1,9 @@
-import Link from "next/link";
+import React from "react";
+import ServicesGrid from "@/app/components/services/ServicesGrid";
 import { services } from "../data/services";
+import ServiceCTA from "../components/services/ServiceCTA";
+import GlobalBackground from "../components/GlobalBackground";
+import ServiceHero from "../components/services/ServiceHero";
 
 export default function ServicesPage() {
   const categories = Array.from(
@@ -8,30 +12,24 @@ export default function ServicesPage() {
 
   return (
     <section className="container mx-auto py-20">
-      <h1 className="text-4xl font-bold mb-12">Our Services</h1>
+      <GlobalBackground />
+      <ServiceHero
+        title="Our Services"
+        description="We provide end-to-end digital, creative, and production services designed to help brands grow, stand out, and connect with their audience in a meaningful way."
+      />
 
       {categories.map((category) => (
         <div key={category} className="mb-16">
-          <h2 className="text-2xl font-semibold mb-6">{category}</h2>
+          <h2 className="mb-6 text-2xl font-semibold">{category}</h2>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {services
-              .filter((service) => service.category === category)
-              .map((service) => (
-                <Link
-                  key={service.slug}
-                  href={`/services/${service.slug}`}
-                  className="border rounded-xl p-6 hover:border-primary transition"
-                >
-                  <h3 className="text-lg font-semibold mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm opacity-70">{service.description}</p>
-                </Link>
-              ))}
-          </div>
+          <ServicesGrid
+            services={services.filter(
+              (service) => service.category === category
+            )}
+          />
         </div>
       ))}
+      <ServiceCTA />
     </section>
   );
 }

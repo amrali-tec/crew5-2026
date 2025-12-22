@@ -1,4 +1,8 @@
+// app/components/Blog/BlogCard.tsx
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 type BlogCardProps = {
   title: string;
@@ -14,21 +18,28 @@ export default function BlogCard({
   slug,
 }: BlogCardProps) {
   return (
-    <Link
-      href={`/blog/${slug}`}
-      className="group border border-white/10 rounded-2xl p-6 bg-background/20 hover:border-accent transition"
-    >
-      <p className="text-sm text-white/50 mb-3">{date}</p>
+    <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2 }}>
+      <Link
+        href={`/blog/${slug}`}
+        className="group flex h-full flex-col rounded-2xl border border-white/8 bg-[#0C1224] p-6 md:p-7 transition-all duration-300 hover:border-accent/80 hover:bg-[#10172F]"
+      >
+        <p className="text-[11px] uppercase tracking-[0.18em] text-muted mb-3">
+          {date}
+        </p>
 
-      <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-accent transition">
-        {title}
-      </h3>
+        <h3 className="text-lg md:text-xl font-semibold text-text mb-3 group-hover:text-accent transition-colors">
+          {title}
+        </h3>
 
-      <p className="text-white/70 text-sm leading-relaxed">{excerpt}</p>
+        <p className="text-sm text-muted leading-relaxed flex-1">{excerpt}</p>
 
-      <span className="inline-block mt-4 text-accent text-sm font-medium">
-        Read more →
-      </span>
-    </Link>
+        <div className="mt-5 flex items-center justify-between text-xs text-accent">
+          <span className="font-medium">Read more</span>
+          <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent/10 text-accent text-xs group-hover:translate-x-1 transition-transform">
+            →
+          </span>
+        </div>
+      </Link>
+    </motion.div>
   );
 }

@@ -1,0 +1,99 @@
+.
+├── LICENSE
+├── README.md
+├── app
+│   ├── aboutus
+│   │   └── page.tsx
+│   ├── blog
+│   │   ├── [slug]
+│   │   │   └── page.tsx
+│   │   └── page.tsx
+│   ├── components
+│   │   ├── About
+│   │   │   ├── AboutHeader.tsx
+│   │   │   ├── CTASection.tsx
+│   │   │   ├── IntroSection.tsx
+│   │   │   ├── MissionVision.tsx
+│   │   │   ├── OurJourney.tsx
+│   │   │   ├── TeamSection.tsx
+│   │   │   └── Testimonials.tsx
+│   │   ├── AnimatedLottieBackground.tsx
+│   │   ├── Blog
+│   │   │   ├── BlogCTA.tsx
+│   │   │   ├── BlogCard.tsx
+│   │   │   ├── BlogGrid.tsx
+│   │   │   ├── BlogHeader.tsx
+│   │   │   ├── BlogHero.tsx
+│   │   │   └── BlogPostHeader.tsx
+│   │   ├── CTA.tsx
+│   │   ├── Client.tsx
+│   │   ├── Contact
+│   │   │   ├── ContactCTA.tsx
+│   │   │   ├── ContactForm.tsx
+│   │   │   ├── ContactHero.tsx
+│   │   │   └── ContactInfo.tsx
+│   │   ├── ContactSection.tsx
+│   │   ├── Footer.tsx
+│   │   ├── HeroSection.tsx
+│   │   ├── LatestPosts.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── Particles.tsx
+│   │   ├── ServicesSection.tsx
+│   │   ├── Stats.tsx
+│   │   ├── Work.tsx
+│   │   ├── services
+│   │   │   ├── ServiceCTA.tsx
+│   │   │   ├── ServiceContent.tsx
+│   │   │   ├── ServiceHero.tsx
+│   │   │   ├── ServicesGrid.tsx
+│   │   │   └── ServicesHero.tsx
+│   │   └── ui
+│   │       └── Crew5Icon.tsx
+│   ├── contact
+│   │   └── page.tsx
+│   ├── data
+│   │   ├── blog.ts
+│   │   └── services.ts
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── projects
+│   │   ├── components
+│   │   │   ├── ProjectCard.tsx
+│   │   │   ├── ProjectsCTA.tsx
+│   │   │   ├── ProjectsGrid.tsx
+│   │   │   └── ProjectsHero.tsx
+│   │   └── page.tsx
+│   └── services
+│       ├── [slug]
+│       │   └── page.tsx
+│       └── page.tsx
+├── eslint.config.mjs
+├── globals.d.ts
+├── next-env.d.js
+├── next-env.d.ts
+├── next.config.js
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── postcss.config.mjs
+├── project-structure.txt
+├── public
+│   ├── animations
+│   │   └── animated-icons.json
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── icons
+│   │   ├── branding.svg
+│   │   ├── social.svg
+│   │   ├── ui.svg
+│   │   └── web.svg
+│   ├── icons.svg
+│   ├── next.svg
+│   ├── vercel.svg
+│   └── window.svg
+├── tailwind.config.js
+└── tsconfig.json
+
+20 directories, 77 files

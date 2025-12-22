@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
 const slides = [
@@ -29,50 +30,126 @@ export default function HeroSlider() {
   }, []);
 
   return (
-    <section className="relative w-full h-screen bg-background flex flex-col justify-center items-center text-center px-6 md:px-12 overflow-hidden">
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center transition-all duration-1000 ${
-            index === current ? "opacity-100 z-10" : "opacity-0 z-0"
-          }`}
+    <section className="relative w-full h-screen bg-transparent flex flex-col justify-center items-center text-center px-6 md:px-12 overflow-hidden">
+      {/* Animated Background Elements (neon green theme) */}
+      <motion.div
+        className="absolute inset-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2 }}
+      >
+        <div className="absolute top-20 left-10 w-32 h-32 bg-emerald-400/10 rounded-full blur-xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-48 h-48 bg-lime-400/10 rounded-full blur-2xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-gradient-to-r from-emerald-400/20 to-lime-400/20 rounded-full animate-ping" />
+      </motion.div>
+
+      {/* Slides */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0, scale: 0.95, y: 30 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.95, y: -30 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center"
         >
-          <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">
-            {slide.title}
-          </h1>
-          <p className="text-white/80 text-lg md:text-2xl mb-8 max-w-2xl">
-            {slide.subtitle}
-          </p>
-          <div className="flex flex-col md:flex-row gap-4">
+          {/* Title */}
+          <motion.h1
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight bg-gradient-to-r from-white to-[#16FF68] bg-clip-text text-transparent"
+          >
+            {slides[current].title}
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-xl md:text-2xl lg:text-3xl text-slate-200/90 mb-12 max-w-3xl mx-auto leading-relaxed px-4"
+          >
+            {slides[current].subtitle}
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="flex flex-col sm:flex-row gap-6"
+          >
+            {/* Primary CTA - Green neon */}
             <Link
               href="#contact"
-              className="bg-accent text-background px-6 py-3 rounded-lg font-bold text-lg hover:opacity-80 transition"
+              className="group relative bg-[#16FF68] text-[#050814] px-10 py-5 rounded-2xl font-bold text-xl shadow-[0_0_35px_rgba(22,255,104,0.6)] hover:shadow-[0_0_45px_rgba(22,255,104,0.9)] transition-all duration-500 overflow-hidden"
             >
-              Contact Us
+              <span className="relative z-10">Contact Us</span>
+              <motion.div
+                className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100"
+                transition={{ duration: 0.3 }}
+              />
             </Link>
+
+            {/* WhatsApp CTA */}
             <a
               href="https://api.whatsapp.com/send?phone=966568121909"
               target="_blank"
-              className="border-2 border-accent text-accent px-6 py-3 rounded-lg font-bold text-lg hover:bg-accent hover:text-background transition"
+              className="group border-2 border-[#16FF68] text-[#16FF68] backdrop-blur-sm px-10 py-5 rounded-2xl font-bold text-xl hover:bg-[#16FF68] hover:text-[#050814] transition-all duration-300"
             >
-              WhatsApp
+              <span className="flex items-center gap-2">
+                WhatsApp
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.05 3.636a1 1 0 010 1.414l-2.121 2.121a1 1 0 01-1.414 0L.636 5.05A1 1 0 011 3.636l2.121-2.121a1 1 0 011.414 0zM15.364 3.636l2.121 2.121a1 1 0 010 1.414l-2.121 2.121a1 1 0 01-1.414 0l-2.121-2.121a1 1 0 010-1.414l2.121-2.121a1 1 0 011.414 0zM3.636 15.364l-2.121-2.121a1 1 0 010-1.414l2.121-2.121a1 1 0 011.414 0l2.121 2.121a1 1 0 010 1.414l-2.121 2.121a1 1 0 01-1.414 0zM15.364 15.364l2.121 2.121a1 1 0 010 1.414l-2.121 2.121a1 1 0 01-1.414 0l-2.121-2.121a1 1 0 010-1.414l2.121-2.121a1 1 0 011.414 0z"
+                  />
+                </svg>
+              </span>
             </a>
-          </div>
-        </div>
-      ))}
+          </motion.div>
+        </motion.div>
+      </AnimatePresence>
 
       {/* Pagination Bullets */}
-      <div className="absolute bottom-10 flex gap-3">
+      <motion.div
+        className="absolute bottom-12 flex gap-3"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1 }}
+      >
         {slides.map((_, index) => (
-          <button
+          <motion.button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`w-4 h-4 rounded-full ${
-              index === current ? "bg-accent" : "bg-white/50"
+            whileHover={{ scale: 1.3 }}
+            whileTap={{ scale: 0.9 }}
+            className={`w-3 h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 ${
+              index === current
+                ? "bg-[#16FF68] shadow-[0_0_12px_rgba(22,255,104,0.8)]"
+                : "bg-white/30 hover:bg-white/70"
             }`}
           />
         ))}
-      </div>
+      </motion.div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-6 flex flex-col items-center gap-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2 }}
+      >
+        <div className="w-px h-12 bg-gradient-to-b from-white/50 to-transparent animate-pulse" />
+        <span className="text-xs text-white/60 font-medium tracking-wider">
+          SCROLL
+        </span>
+      </motion.div>
     </section>
   );
 }

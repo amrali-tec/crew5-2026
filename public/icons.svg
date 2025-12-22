@@ -1,0 +1,8 @@
+shape: {
+  type: "image",
+  image: [
+    { src: "/icons/web.svg", width: 24, height: 24 },
+    { src: "/icons/ui.svg", width: 24, height: 24 },
+    // أيقوناتك هنا
+  ]
+}

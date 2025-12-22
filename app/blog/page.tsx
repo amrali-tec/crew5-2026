@@ -4,12 +4,15 @@
 import Link from "next/link";
 import { BlogPost, posts } from "../data/blog";
 import BlogHeader from "../components/Blog/BlogHeader";
+import GlobalBackground from "../components/GlobalBackground";
+import BlogCTA from "../components/Blog/BlogCTA";
 
 export default function BlogPage() {
   const BlogHeaderAny = BlogHeader as any;
 
   return (
     <>
+      <GlobalBackground />
       <BlogHeaderAny title="Blog" category="All" />
       <section className="w-full py-20 px-6 md:px-12 bg-background">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -30,6 +33,7 @@ export default function BlogPage() {
           ))}
         </div>
       </section>
+      <BlogCTA />
     </>
   );
 }

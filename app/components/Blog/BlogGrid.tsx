@@ -1,4 +1,8 @@
+// app/components/Blog/BlogGrid.tsx
+"use client";
+
 import BlogCard from "./BlogCard";
+import { motion } from "framer-motion";
 
 const posts = [
   {
@@ -26,11 +30,21 @@ const posts = [
 
 export default function BlogGrid() {
   return (
-    <section className="px-6 md:px-12 py-20">
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {posts.map((post, index) => (
-          <BlogCard key={index} {...post} />
-        ))}
+    <section className="px-6 md:px-12 py-16 bg-background">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post, index) => (
+            <motion.div
+              key={post.slug}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+            >
+              <BlogCard {...post} />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
