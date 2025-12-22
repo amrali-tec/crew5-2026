@@ -3,6 +3,7 @@ import "@fontsource/ibm-plex-sans-arabic/700.css";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+
 export const metadata = {
   title: "Crew5 Agency",
   description: "Creative Agency",
@@ -15,9 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-background text-white">
         <Navbar />
-        {children}
+        <main className="pt-[80px]">{children}</main>
         <Footer />
       </body>
     </html>
